@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
   if (user.password !== password || !user)
     return res.status(401).send("Wrong Password or User");
   const token = jwt.sign({ _id: user._id }, "secret-key");
-  res.json(token);
+  res.json({token});
 });
 router.get("/taks", (req, res) => {
   res.json([
